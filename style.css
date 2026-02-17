@@ -1,52 +1,61 @@
-/* Basic reset for body */
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: #f5f5f5;
   margin: 0;
-  padding: 0;
+  padding: 20px 0;
   display: flex;
   justify-content: center;
-  align-items: center;
   min-height: 100vh;
 }
 
-/* Container for the game UI */
 .container {
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   padding: 24px 32px;
-  max-width: 420px;
-  width: 90%;
+  max-width: 720px;
+  width: 92%;
 }
 
 h1 {
   text-align: center;
-  color: #e60000; /* ReddCoin red */
+  color: #e60000;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
-/* Scoreboard layout */
+h2 {
+  margin: 0 0 10px;
+  color: #e60000;
+  font-size: 18px;
+}
+
+.mission-panel {
+  margin-bottom: 16px;
+  padding: 12px;
+  border: 1px solid #ffd6d6;
+  background: #fff7f7;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
 .scoreboard {
   margin-bottom: 20px;
   font-size: 14px;
 }
+
 .row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 6px 0;
 }
-.row.energy-row {
-  align-items: center;
-}
+
 .label {
   font-weight: bold;
   margin-right: 8px;
 }
 
-/* Energy bar styling */
 .energy-bar {
   flex-grow: 1;
   height: 12px;
@@ -55,6 +64,7 @@ h1 {
   margin: 0 8px;
   overflow: hidden;
 }
+
 .energy-fill {
   height: 100%;
   width: 100%;
@@ -62,142 +72,35 @@ h1 {
   transition: width 0.3s ease;
 }
 
-/* Stake button styling */
-.stake-button {
-  background: #e60000;
+button {
   color: #fff;
   border: none;
   border-radius: 20px;
   padding: 6px 12px;
   font-size: 12px;
   cursor: pointer;
-  transition: background 0.2s ease;
-}
-.stake-button:hover {
-  background: #cc0000;
+  transition: opacity 0.2s ease;
 }
 
-/* Claim button styling */
-.claim-button {
-  background: #27ae60; /* green */
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 6px 12px;
-  font-size: 12px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-.claim-button:hover {
-  background: #1e8449;
+button:hover {
+  opacity: 0.9;
 }
 
-/* Fertilizer booster button styling */
-.fertilizer-button {
-  background: #f39c12; /* orange */
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 6px 12px;
-  font-size: 12px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-.fertilizer-button:hover {
-  background: #d68910;
-}
+.stake-button { background: #e60000; }
+.claim-button { background: #27ae60; }
+.fertilizer-button { background: #f39c12; }
+.daily-button { background: #8e44ad; }
+.deposit-button { background: #16a085; }
+.withdraw-button { background: #c0392b; }
+.referral-button { background: #3498db; }
+.share-button { background: #2980b9; }
+.prestige-button { background: #f1c40f; }
+.learn-button { background: #6ab04c; }
+.help-button { background: #95a5a6; }
+.grant-button { background: #9b59b6; }
+.report-button { background: #34495e; }
 
-/* Daily bonus button styling */
-.daily-button {
-  background: #8e44ad; /* purple */
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 6px 12px;
-  font-size: 12px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-.daily-button:hover {
-  background: #7d3c98;
-}
-
-/* Deposit button styling */
-.deposit-button {
-  background: #16a085; /* teal */
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 6px 12px;
-  font-size: 12px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-.deposit-button:hover {
-  background: #138d75;
-}
-
-/* Withdraw button styling */
-.withdraw-button {
-  background: #c0392b; /* dark red for withdraw */
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 6px 12px;
-  font-size: 12px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-.withdraw-button:hover {
-  background: #a93226;
-}
-
-/* Referral button styling */
-.referral-button {
-  background: #3498db; /* blue */
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 6px 12px;
-  font-size: 12px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-.referral-button:hover {
-  background: #2e86c1;
-}
-
-/* Share button styling */
-.share-button {
-  background: #2980b9; /* darker blue for share */
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 6px 12px;
-  font-size: 12px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-.share-button:hover {
-  background: #2471a3;
-}
-
-/* Prestige button styling */
-.prestige-button {
-  background: #f1c40f; /* gold */
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 6px 12px;
-  font-size: 12px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-.prestige-button:hover {
-  background: #d4ac0d;
-}
-
-/* Achievements section */
+.ethics-panel,
 .achievements {
   margin: 16px 0;
   padding: 12px;
@@ -205,43 +108,85 @@ h1 {
   border: 1px solid #eee;
   border-radius: 8px;
 }
-.achievements h2 {
-  margin: 0 0 8px 0;
-  font-size: 16px;
-  color: #e60000;
+
+.ethics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 8px;
+  margin-bottom: 10px;
 }
+
+.metric-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.metric-label {
+  display: block;
+  font-size: 11px;
+  color: #666;
+}
+
+.metric-value {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.charity-controls,
+.charity-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.charity-controls input[type='range'] {
+  flex: 1;
+  min-width: 120px;
+}
+
+.charity-label {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.ledger-list,
 .achievements ul {
   list-style: none;
   padding-left: 0;
   margin: 0;
 }
+
+.ledger-list li,
 .achievements li {
   font-size: 12px;
   margin: 4px 0;
-  padding: 4px 6px;
+  padding: 6px;
   background: #f0f0f0;
   border-radius: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
+
 .achievements li.unlocked {
-  background: #d4efdf; /* light green for unlocked */
+  background: #d4efdf;
   color: #2e7d32;
 }
 
-/* Garden section */
 .garden {
   position: relative;
   text-align: center;
   margin: 20px 0;
 }
+
 #plant-image {
   width: 200px;
   height: auto;
   display: block;
   margin: 0 auto;
 }
+
 .tap-button {
   position: absolute;
   bottom: 8%;
@@ -249,14 +194,10 @@ h1 {
   transform: translateX(-50%);
   padding: 10px 20px;
   font-size: 16px;
-  color: #fff;
   background: #e60000;
-  border: none;
-  border-radius: 24px;
-  cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.1s ease;
 }
+
 .tap-button:active {
   transform: translateX(-50%) scale(0.96);
 }
@@ -267,88 +208,45 @@ h1 {
   color: #555;
 }
 
-/* Modal overlay for Learn & Earn and Help */
 .modal {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 999;
 }
+
 .modal.hidden {
   display: none;
 }
+
 .modal-content {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
   width: 90%;
   max-width: 420px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
+
 .modal-content h3 {
   margin-top: 0;
   color: #e60000;
-  font-size: 20px;
 }
+
 .modal-close {
   background: #e60000;
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 6px 12px;
-  font-size: 12px;
-  cursor: pointer;
-  transition: background 0.2s ease;
 }
-.modal-close:hover {
-  background: #cc0000;
-}
-/* Learn option buttons styling */
+
 .learn-options button {
   display: block;
   width: 100%;
   margin: 6px 0;
   padding: 6px 8px;
+  color: #333;
   background: #f5f5f5;
   border: 1px solid #ddd;
   border-radius: 6px;
-  cursor: pointer;
   font-size: 14px;
-}
-.learn-options button:hover {
-  background: #eaeaea;
-}
-
-/* Learn and help buttons styling */
-.learn-button {
-  background: #6ab04c; /* green */
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 6px 12px;
-  font-size: 12px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-.learn-button:hover {
-  background: #58a23c;
-}
-.help-button {
-  background: #95a5a6; /* grey */
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 6px 12px;
-  font-size: 12px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-.help-button:hover {
-  background: #7e8c8d;
 }
