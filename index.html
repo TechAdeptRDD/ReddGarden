@@ -9,11 +9,18 @@
 <body>
   <div class="container">
     <h1>ReddGarden Prototype</h1>
-    <!-- Scoreboard displays player info and resources -->
+
+    <div class="mission-panel">
+      <h2>Mission: Fair Crypto for Everyone</h2>
+      <p>
+        Open, honest, transparent gameplay. No hidden fees, no middlemen deductions,
+        community-first distribution, and optional charity contributions to spread RDD further.
+      </p>
+    </div>
+
     <div class="scoreboard">
       <div class="row">
         <span class="label">ReddID:</span>
-        <!-- In a real app this would be the user’s registered ReddID -->
         <span id="reddid">guest_user</span>
       </div>
       <div class="row">
@@ -35,127 +42,129 @@
         <span class="label">Stake RDD:</span>
         <button id="stake-button" class="stake-button">Stake 1 RDD</button>
       </div>
-
-      <!-- Display the user’s available wallet balance (simulated) -->
       <div class="row">
         <span class="label">Wallet RDD:</span>
         <span id="wallet-rdd">0</span>
       </div>
-
-      <!-- Claim rewards button to simulate converting points to RDD -->
       <div class="row">
         <span class="label">Claim:</span>
         <button id="claim-button" class="claim-button">Claim RDD</button>
       </div>
-
-      <!-- Booster purchase: Fertilizer refills energy for a cost -->
       <div class="row">
         <span class="label">Boosters:</span>
         <button id="fertilizer-button" class="fertilizer-button">Fertilizer (50 pts)</button>
       </div>
-
-      <!-- Daily bonus button; players can claim a free reward once per day -->
       <div class="row">
         <span class="label">Daily Bonus:</span>
         <button id="daily-button" class="daily-button">Claim Bonus</button>
       </div>
-
-      <!-- Deposit button to display a deposit address (simulation) -->
       <div class="row">
         <span class="label">Deposit:</span>
         <button id="deposit-button" class="deposit-button">Show Address</button>
       </div>
-
-      <!-- Withdraw button to simulate a withdrawal request -->
       <div class="row">
         <span class="label">Withdraw:</span>
         <button id="withdraw-button" class="withdraw-button">Withdraw</button>
       </div>
-
-      <!-- Referral: copy a unique invitation link -->
       <div class="row">
         <span class="label">Referral:</span>
         <button id="referral-button" class="referral-button">Copy Link</button>
       </div>
-
-      <!-- Show player level -->
       <div class="row">
         <span class="label">Level:</span>
         <span id="level">1</span>
       </div>
-
-      <!-- Show number of successful referrals (placeholder for future backend integration) -->
       <div class="row">
         <span class="label">Referrals:</span>
         <span id="referrals">0</span>
       </div>
-
-      <!-- Share button to post referral link on social media -->
       <div class="row">
         <span class="label">Share:</span>
         <button id="share-button" class="share-button">Share</button>
       </div>
-
-      <!-- Prestige multiplier display (permanent earnings boost) -->
       <div class="row">
         <span class="label">Prestige Multiplier:</span>
         <span id="prestige-multiplier">1x</span>
       </div>
-
-      <!-- Prestige reset button: allows player to reset progress for a permanent multiplier boost -->
       <div class="row">
         <span class="label">Prestige:</span>
         <button id="prestige-button" class="prestige-button">Prestige</button>
       </div>
-
-      <!-- Learn & Earn button: answer quizzes to earn points -->
       <div class="row">
-        <span class="label">Learn & Earn:</span>
+        <span class="label">Learn &amp; Earn:</span>
         <button id="learn-button" class="learn-button">Learn</button>
       </div>
-
-      <!-- Help & Info button: open help modal -->
       <div class="row">
         <span class="label">Help:</span>
         <button id="help-button" class="help-button">Help</button>
       </div>
     </div>
-    <!-- Achievements section -->
+
+    <div class="ethics-panel">
+      <h2>Transparency &amp; Charity Ledger</h2>
+      <div class="ethics-grid">
+        <div class="metric-card">
+          <span class="metric-label">Protocol Fee</span>
+          <span id="protocol-fee" class="metric-value">0%</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">Total Claimed</span>
+          <span id="total-claimed" class="metric-value">0.00 RDD</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">To Players</span>
+          <span id="total-to-players" class="metric-value">0.00 RDD</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">Charity Vault</span>
+          <span id="charity-vault" class="metric-value">0.00 RDD</span>
+        </div>
+      </div>
+      <div class="charity-controls">
+        <label class="charity-label" for="charity-percent">Donate per claim</label>
+        <input type="range" id="charity-percent" min="0" max="50" step="5" value="10">
+        <span id="charity-percent-text">10%</span>
+      </div>
+      <div class="charity-actions">
+        <button id="grant-button" class="grant-button">Send 1 RDD Grant from Vault</button>
+        <button id="report-button" class="report-button">Export Transparency Report</button>
+      </div>
+      <ul id="ledger-list" class="ledger-list"></ul>
+    </div>
+
     <div class="achievements">
       <h2>Achievements</h2>
       <ul id="achievements-list"></ul>
     </div>
 
-    <!-- Garden area with plant image and tap button -->
     <div class="garden">
       <img src="assets/plant.png" alt="Plant" id="plant-image">
       <button id="tap-button" class="tap-button">Water Plant</button>
     </div>
+
     <div class="info">
       <p id="message">Tap the plant to earn Influence Points!</p>
     </div>
 
-    <!-- Learn & Earn modal (hidden by default) -->
     <div id="learn-modal" class="modal hidden">
       <div class="modal-content">
-        <h3>Learn & Earn</h3>
+        <h3>Learn &amp; Earn</h3>
         <p id="learn-question"></p>
         <div id="learn-options" class="learn-options"></div>
         <button id="learn-close" class="modal-close">Close</button>
       </div>
     </div>
 
-    <!-- Help & Info modal (hidden by default) -->
     <div id="help-modal" class="modal hidden">
       <div class="modal-content">
-        <h3>Help & Info</h3>
+        <h3>Help &amp; Info</h3>
         <div id="help-content" class="help-content">
-          <p><strong>How to Play:</strong> Tap the plant to earn Influence Points. Energy regenerates over time, and you can use boosters or stake RDD to increase your earnings.</p>
-          <p><strong>Staking:</strong> Stake RDD to earn more points per tap. Staking reflects ReddCoin’s Proof-of-Stake Velocity consensus, which rewards both ownership and activity.</p>
-          <p><strong>Claiming & Wallet:</strong> Every 1 000 Influence Points converts to 1 RDD. Use the Claim button to convert your points and deposit or withdraw RDD using the wallet buttons.</p>
-          <p><strong>Referral & Social:</strong> Invite friends using your referral link and share on social media to earn bonuses and grow the community.</p>
-          <p><strong>Prestige:</strong> Once you reach 10 000 points you can Prestige to reset progress for a permanent earnings multiplier.</p>
-          <p><strong>Learn & Earn:</strong> Use this feature to answer short quizzes about ReddCoin and cryptocurrency. Correct answers grant bonus points!</p>
+          <p><strong>How to Play:</strong> Tap to earn Influence Points. Energy regenerates over time.</p>
+          <p><strong>Claiming:</strong> Every 1,000 points converts to 1 RDD with a protocol fee of <strong>0%</strong>.</p>
+          <p><strong>Charity Mode:</strong> Choose your donation percentage per claim to fund community grants.</p>
+          <p><strong>Transparency:</strong> Every economic action is logged in the on-screen ledger and exportable as JSON.</p>
+          <p><strong>Staking:</strong> Stake from your wallet balance to boost points per tap.</p>
+          <p><strong>Prestige:</strong> Reset progress at 10,000 points for a permanent multiplier increase.</p>
         </div>
         <button id="help-close" class="modal-close">Close</button>
       </div>
